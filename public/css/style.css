@@ -59,7 +59,7 @@ aside input {
     margin-bottom: 5px;
 }
 
-#signin, #signup {
+#signin, #signup, #logout {
     border: none;
     background: var(--layer3);
     padding: 4px 6px;

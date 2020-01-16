@@ -18,8 +18,25 @@ $(document).ready(function(){
                 username: $("input[name = username]").val(),
                 password: $("input[name = password]").val()
             },
+            success: function() {
+                window.location.reload();
+            },
             error: function(data) {
                 alert("No User Found. Try again.");
+            }
+        });
+    });
+    
+    $("#logout").on("click", function() {
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "/api/logout",
+            data: {
+                logout: true   
+            },
+            success: function() {
+                window.location.reload();
             }
         });
     });

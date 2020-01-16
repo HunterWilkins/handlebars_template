@@ -16,11 +16,16 @@
         <p>Website Logo</p>
     </nav>
     <main>
-        <aside>      
+        <aside>
+            {{#if userId}} 
+            <button id = "logout">Log Out</button>
+            {{else}}
             <input name = "username" type="text" placeholder = "Username">
             <input name = "password" type="password" placeholder = "Password">
             <button id = "signin">Sign In</button> or
             <button id = "signup">Sign Up</button>
+            
+            {{/if}}
         </aside>
         
         {{{body}}}

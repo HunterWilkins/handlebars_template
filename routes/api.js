@@ -32,11 +32,13 @@ module.exports = function(app) {
 
     app.post("/api/signin", function(req, res) {
         console.log(req.body);
-        db.User.find({
+        db.User.findOne({
             username: req.body.username,
             password: req.body.password
         }).then(function(dbUser) {
-            if (dbUser.id) {
+            console.log(dbUser);
+            if (dbUser) {
+                req.session.userId = dbUser.id;
                 console.log("Successfully Logged In");
                 res.json(dbUser);
             }
@@ -46,6 +48,11 @@ module.exports = function(app) {
             }
         }).catch(err => console.log(err));
     });
+
+    app.post("/api/logout", function(req, res) {
+        req.session.destroy();
+        res.sendStatus(200);
+    })
 
     app.put("/api/user/update", function(req, res) {
         db.User.findOneAndUpdate({

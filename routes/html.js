@@ -1,5 +1,6 @@
 module.exports = function(app) {
     app.get("/", function(req, res) {
-        res.render("landing");
+        console.log(req.session.userId);
+        res.render("landing", {userId: req.session.userId});
     });
 }
