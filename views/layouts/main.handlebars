@@ -14,17 +14,20 @@
 <body>
     <nav>
         <p>Website Logo</p>
+        {{#if session.userId}}
+        <button id = "logout">Log Out</button>
+        {{/if}}
     </nav>
     <main>
         <aside>
-            {{#if userId}} 
-            <button id = "logout">Log Out</button>
+            {{#if session.userId}}
+            <h2>{{session.username}}</h2>
+            <a class = "navbuttons" href="/settings">Settings</a>
             {{else}}
             <input name = "username" type="text" placeholder = "Username">
             <input name = "password" type="password" placeholder = "Password">
             <button id = "signin">Sign In</button> or
             <button id = "signup">Sign Up</button>
-            
             {{/if}}
         </aside>
         

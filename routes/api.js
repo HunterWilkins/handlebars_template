@@ -25,6 +25,8 @@ module.exports = function(app) {
             id: id
         }).then(function(dbUser) {
             console.log("Successfully Added");
+            req.session.userId = dbUser.id;
+            req.session.username = dbUser.username;
             res.json(dbUser);
         }).catch(err => console.log(err));
 
@@ -39,6 +41,7 @@ module.exports = function(app) {
             console.log(dbUser);
             if (dbUser) {
                 req.session.userId = dbUser.id;
+                req.session.username = dbUser.username;
                 console.log("Successfully Logged In");
                 res.json(dbUser);
             }
