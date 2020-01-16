@@ -1,4 +1,83 @@
-html {
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --navHeight: 35px;
+    --layer0: rgb(27,25,27);
+    --layer1: rgb(56, 50, 54);
+    --layer2: rgb(68, 58, 65);
+    --layer3: rgb(122, 101, 109);
+    --layer4: rgb(145, 118, 120);
+    --highlight: rgb(206, 173, 173);
+}
+
+body {
     background: rgb(27, 25, 27);
     color: white;
+    font-family: sans-serif;
+}
+
+button {
+    cursor: pointer;
+    color: inherit;
+}
+
+nav {
+    position: fixed;
+    padding: 5px;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--navHeight);
+    background: var(--layer1);
+}
+
+nav > * {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+aside {
+    width: 150px;
+    padding: 5px;
+    position: fixed;
+    top: var(--navHeight);
+    bottom: 0;
+    right: 0;
+    text-align:center;
+    background: var(--layer2);
+}
+
+aside input {
+    border: none;
+    padding: 5px;
+    background: var(--layer0);
+    color: white;
+    max-width: 100%;
+    margin-bottom: 5px;
+}
+
+#signin, #signup {
+    border: none;
+    background: var(--layer3);
+    padding: 4px 6px;
+}
+
+#signin {
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+#signup {
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+main {
+    position: fixed;
+    top: var(--navHeight);
+    bottom: 0;
+    width: 100%;
 }
